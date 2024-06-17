@@ -37,6 +37,7 @@ namespace dwonvid
         }
         private async void button1_Click(object sender, EventArgs e)
         {
+            button1.Enabled = false;
             button1.BackColor= Color.Green;
             var youtube = new YoutubeClient();
             var VideoUrl = textBox1.Text;
@@ -64,6 +65,7 @@ namespace dwonvid
             var savePath = Path.Combine(palce, $"video{RandomString(12)}.{streamInfo.Container}");
             
             await DownloadVideoWithProgressAsync(streamInfo, savePath);
+            button1.Enabled = true;
         }
 
 
@@ -99,6 +101,7 @@ namespace dwonvid
 
             MessageBox.Show("Video downloaded successfully!");
             this.Close();
+
         }
 
 
